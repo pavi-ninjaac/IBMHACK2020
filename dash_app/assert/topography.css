@@ -1,0 +1,26 @@
+body{
+	background-color: black;
+}
+h1{
+	color: gray;
+	opacity: 0.6;
+}
+h2{
+	color:red;
+}
+
+ol,li{
+	color:red;
+	list-style-type: none;
+	margin: 0;
+	padding-left:10px;
+	
+
+}
+
+h6{
+	color:gray;
+	opacity: 0.8;
+	font-size: 12.5px;
+	font-family:'Arial';
+}
