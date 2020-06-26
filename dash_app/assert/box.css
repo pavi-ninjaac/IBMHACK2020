@@ -1,0 +1,25 @@
+.header{
+	border: 1.5px solid #404040;
+	border-radius: 10px;
+	width:100%;
+	margin-top: 0px;
+	height: 55px;
+	padding-bottom: 20px;
+	color:blue;
+}
+.list{
+	display: inline-flex;
+	vertical-align: top;
+	margin: 0;
+	padding:0;
+}
+
+.first_box{
+	border: 1.5px solid #404040;
+	border-radius: 10px;
+	width: 17%;
+	height: 110px;
+	margin-top: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+}
