@@ -24,3 +24,34 @@ h6{
 	font-size: 12.5px;
 	font-family:'Arial';
 }
+td{
+	color:white;
+	padding:4px;
+	opacity: 0.6;
+}
+caption{
+	color:green;
+	font-size: 20px;
+	position: sticky;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  border-radius: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: black;
+  opacity: 0.6; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
