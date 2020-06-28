@@ -71,6 +71,9 @@ class tweets_analyse():
         df_deaths_ts = pd.read_csv(r'F:\dash_app\dash_ibm_app\dataset\time_series_death_global.csv')
         df_recovered_ts = pd.read_csv(r'F:\dash_app\dash_ibm_app\dataset\time_series_recovery_global.csv')
         
+        df_lat_long_confirm=df_confirmed_ts[['Country/Region','Lat','Long']]
+
+
         # remove the columns representing the Latitude and longitude of the locations
         df_confirmed_ts.drop(columns=['Lat','Long'],inplace=True)
         df_deaths_ts.drop(columns=['Lat','Long'],inplace=True)
@@ -104,5 +107,13 @@ class tweets_analyse():
                                      on=['Country/Region', 'date'])
 
         full_table = full_table.merge(right=df_recovered_long, how='left',
-                                     on=['Country/Region', 'date'])     
-        return full_table
+                                     on=['Country/Region', 'date'])   
+        
+        df_lat_long_confirm_f=df_lat_long_confirm.groupby('Country/Region',as_index=False).max()
+        df_lat_long_confirm_f['Country/Region'].value_counts()
+
+        full_table_f=full_table.merge(right=df_lat_long_confirm_f,how='outer',
+                                on=['Country/Region'])
+        
+        
+        return full_table_f
