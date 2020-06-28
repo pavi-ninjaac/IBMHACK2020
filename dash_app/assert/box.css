@@ -20,6 +20,68 @@
 	width: 17%;
 	height: 110px;
 	margin-top: 5px;
-	margin-right: 5px;
+	margin-right: 0px;
 	margin-bottom: 5px;
+}
+.sentiment_emotion_graph{
+	border: 1.5px solid #404040;
+	border-radius: 10px;
+	margin-top: 5px;
+	padding-left: 0;
+	margin-left: 0;
+	margin-right: 5px;
+	height:440px;
+}
+.confirm_countrywise{
+	border: 1.5px solid #404040;
+	border-radius: 10px;
+	height: 440px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	overflow-x: hidden;
+
+	overflow-y: auto;
+
+}
+
+
+
+.death_countrywise{
+	border: 1.5px solid #404040;
+	border-radius: 10px;
+	width:17;
+	margin-top: 0px;
+	height: 300px;
+	overflow-x: hidden;
+
+	overflow-y: auto;
+
+}
+.death_countywise_name{
+	border: 1.5px solid #404040;
+	border-radius:5px;
+	margin-top: 2px;
+	font-size: 13px;
+	text-align: center;
+	height:20px;
+	color:green;
+}
+
+.map{
+		border: 1.5px solid #404040;
+	border-radius:5px;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: gray;
+
+}
+.time_series_map{
+		border: 1.5px solid #404040;
+	border-radius:5px;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 5px;	
+	height:500px;
 }
