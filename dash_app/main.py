@@ -9,16 +9,24 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_renderer
 from dash.dependencies import Input,Output
-
 import pandas as pd
+
 from tweetwrangling import tweets_analyse
 
+from node_red_data_collection import sentiment_data
 import json
 import plotly.express as px
 import plotly.graph_objects as go
 
+#data collection part__________________________________________________________
+
+
 total_confirmed,sorted_confirmed,total_deaths,sorted_deaths,total_recovered,sorted_recovered,total_active,sorted_active=tweets_analyse.get_data()
 time_series_df=tweets_analyse.time_series_creation()
+
+#read sentiment data
+sentiment_values,sentimet_names,emotion_value,emotion_name=sentiment_data.get_sentiment_data()
+
 
 colors={
         'background':'black',
@@ -43,7 +51,7 @@ def generate_tabel(df,title):
         ])
 
 
-#map creation
+#map creation__________________________________________________________________
     
 #access token from mapbox https://account.mapbox.com/
 token='pk.eyJ1IjoibmluamFhYyIsImEiOiJja2J5bjB4YmQwaXg2MzBuNHNzaTA0bXk2In0.BVaAwyDqBSPCCYqRFQBdcA'   
@@ -60,7 +68,7 @@ fig.update_layout(mapbox_style="dark",mapbox_accesstoken=token)
 
 fig.update_layout(margin={"r":0,"t":0,"l":0,"b":0})
 
-#time series map ceration based on the map cover data
+#time series map ceration based on the map cover data____________________________________
 colors={
     'backgroud':"black",
     'text':'gray',
@@ -71,7 +79,7 @@ def create_time_series(df,country_name,col_name,title):
             {'x':list(df['date']), 'y':list(df[col_name]),
              'type' : 'bar' ,
              'name' : 'Date',
-             
+             'color':['red'],
                  },
             ],
         layout={'title' : country_name +'\t' + title,
@@ -80,11 +88,58 @@ def create_time_series(df,country_name,col_name,title):
                 'paper_bgcolor':colors['backgroud'],
                 'font' :{
                     'color':colors['text']  
-                    }
+                    },
+                'height':350,
                 },
         )
+    
     return fig
+#sentiment pie chart making______________________________________________________________
+fig_pie = px.pie(
+                values=sentiment_values,
+                names=sentimet_names,
+                color_discrete_sequence=['#66004d','#990073','#b30086'],
+                opacity=0.7
+              )
 
+fig_pie.update_traces(
+                        textposition='inside', 
+                        textinfo='percent+label')
+fig_pie.update_layout(
+                        margin={},
+                        plot_bgcolor=colors['backgroud'],
+                        paper_bgcolor=colors['backgroud'],
+                        font ={
+                                'color':colors['text']  
+                                },                        
+                        height=350,
+                        )
+
+#bar chart for emotion analysis________________________________________________
+
+fig_bar=px.bar(
+                x=emotion_value,
+                y=emotion_name,
+                text=emotion_value,
+                color_discrete_sequence=['#66004d'],
+                
+                opacity=0.7
+                )
+fig_bar.update_traces(
+                        texttemplate='%{text:.2s}',
+                        textposition='outside'
+                        )
+fig_bar.update_layout(uniformtext_minsize=8
+                          ,uniformtext_mode='hide',
+                          font={'color':'gray'})
+fig_bar.update_layout(
+                        margin={},
+                         plot_bgcolor=colors['backgroud'],
+                        paper_bgcolor=colors['backgroud'],
+                        height=350,
+                        )
+
+#dash app starts____________________________________________________________________________-
 
 app=dash.Dash(__name__)
 
@@ -114,7 +169,44 @@ app.layout=html.Div(children=[
                              style={'width':'64%',
                                     'display':'inline-block',
                                     'float':'right',},
-                             children=[html.Div('ssdfghb')]),
+                             children=[     
+                                 dcc.Tabs([
+                                    dcc.Tab(label='Sentiment of people duirng COVID19 lockdown', children=[
+                                 
+                                     html.Div(className='sentiment_pie',
+                                                 style={'width':'90%',
+                                                       'display':'inline-block',
+                                                       'float':'left'},
+                                                children=[
+                                                    dcc.Graph(id='sentiment_pie_chart',
+                                                              figure=fig_pie,),
+                                                    
+                                         ]) ]),
+                                    
+                                    dcc.Tab(label='Sentiments, If lockdown Extended', children=[
+                                 
+                                     html.Div(className='sentiment_pie',
+                                                 style={'width':'90%',
+                                                       'display':'inline-block',
+                                                       'float':'left'},
+                                                children=[
+                                                    dcc.Graph(id='future_sentiment_pie_chart',
+                                                              figure=fig_pie,),
+                                                    
+                                         ]) ]),
+                                    dcc.Tab(label='Emotions of people during COVID19 lockdown', children=[
+                                       html.Div(className='emotion_bar',
+                                                 style={'width':'90%',
+                                                       'display':'inline-block',
+                                                       'float':'right'},  
+                                                 children=[
+                                                     dcc.Graph(
+                                                         id='emotion_bar_chat',
+                                                         figure=fig_bar,
+                                                         )
+                                                     ]
+                                                )
+                                 ])])]),
 
                     html.Div(className='death_countrywise',
                              style={'width':'17%',},
@@ -161,6 +253,10 @@ def display_hover_data(hoverData):
     return json.dumps(hoverData, indent=2)
 
 """
+
+#call pack starts_______________________________________________________________________________
+
+
 @app.callback(Output(component_id='death_time_series_map', component_property='figure'),
               [Input(component_id='scatter_world_map',component_property='hoverData')])
 def ubdate_death_time_series(hoverData):
