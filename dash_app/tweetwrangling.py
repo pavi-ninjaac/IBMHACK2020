@@ -40,7 +40,17 @@ class tweets_analyse():
 
         df_consolidated = df_filtered.groupby(by='Country_Region',as_index=False).sum()
         df_consolidated.head()
+        
+        #getting states morality rate it  is the value that is divide death by total confirmed cases
+        #morality high means death is high
+        
+        df_consolidated["Mortality Rate (per 100)"] = np.round(100*df_consolidated["Deaths"]/df_consolidated["Confirmed"],2)
+        morality_df=df_consolidated[['Mortality Rate (per 100)','Country_Region','Deaths','Confirmed']].copy()
+        
+        morality_sorted =morality_df.sort_values(by='Mortality Rate (per 100)',ascending=False)    
+        top_25_cities=morality_sorted.iloc[0:25,:]
 
+                    
         # total confirmed along with contries
         total_confirmed = df_consolidated['Confirmed'].sum()
         confirm_country=df_consolidated[['Confirmed','Country_Region']].copy()
@@ -57,12 +67,9 @@ class tweets_analyse():
         total_recovered = df_consolidated['Recovered'].sum()
         recovery_country=df_consolidated[['Recovered','Country_Region']].copy()
         sorted_recovered =recovery_country.sort_values(by='Recovered',ascending=False)
-    
-        #total active cases
-        total_active=df_consolidated['Active'].sum()
-        sorted_active=df_consolidated['Active'].sort_values(ascending=False)
-    
-        return total_confirmed,sorted_confirmed,total_deaths,sorted_death,total_recovered,sorted_recovered,total_active,sorted_active
+
+
+        return total_confirmed,sorted_confirmed,total_deaths,sorted_death,total_recovered,sorted_recovered,top_25_cities
     
     
     def time_series_creation():
