@@ -21,11 +21,11 @@ import plotly.graph_objects as go
 #data collection part__________________________________________________________
 
 
-total_confirmed,sorted_confirmed,total_deaths,sorted_deaths,total_recovered,sorted_recovered,total_active,sorted_active=tweets_analyse.get_data()
+total_confirmed,sorted_confirmed,total_deaths,sorted_death,total_recovered,sorted_recovered,top_25_cities=tweets_analyse.get_data()
 time_series_df=tweets_analyse.time_series_creation()
 
 #read sentiment data
-sentiment_values,sentimet_names,emotion_value,emotion_name=sentiment_data.get_sentiment_data()
+sentiment_values,sentimet_names,emotion_value,emotion_name,future_sentiment_value,future_sentimet_names,total=sentiment_data.get_sentiment_data()
 
 
 colors={
@@ -98,14 +98,39 @@ def create_time_series(df,country_name,col_name,title):
 fig_pie = px.pie(
                 values=sentiment_values,
                 names=sentimet_names,
-                color_discrete_sequence=['#66004d','#990073','#b30086'],
-                opacity=0.7
+                color_discrete_sequence=['#66004d','green','#b30086'],
+                opacity=0.9,
+                hole=0.7,
+                
               )
 
-fig_pie.update_traces(
+fig_pie.update_traces(  marker_line_color='red',
                         textposition='inside', 
-                        textinfo='percent+label')
-fig_pie.update_layout(
+                        textinfo='percent')
+fig_pie.update_layout(  clickmode='event+select',
+                        margin={},
+                        plot_bgcolor=colors['backgroud'],
+                        paper_bgcolor=colors['backgroud'],
+                        font ={
+                                'color':colors['text']  
+                                },                        
+                        height=350,
+                        )
+# future sentiment pie chart making______________________________________________________________
+fig_pie_future = px.pie(
+                values=future_sentiment_value,
+                names=future_sentimet_names,
+                color_discrete_sequence=['#66004d','green','#b30086'],
+                opacity=0.9,
+                hole=0.7,
+                
+              )
+
+fig_pie_future.update_traces(  marker_line_color='red',
+                        textposition='inside', 
+                        textinfo='percent')
+fig_pie_future.update_layout(
+                        clickmode='event+select',
                         margin={},
                         plot_bgcolor=colors['backgroud'],
                         paper_bgcolor=colors['backgroud'],
@@ -122,7 +147,7 @@ fig_bar=px.bar(
                 y=emotion_name,
                 text=emotion_value,
                 color_discrete_sequence=['#66004d'],
-                
+                labels={'x':'','y':''},
                 opacity=0.7
                 )
 fig_bar.update_traces(
@@ -139,11 +164,28 @@ fig_bar.update_layout(
                         height=350,
                         )
 
+#morality line graph_____________________________________________________________________________
+fig_line = go.Figure()
+fig_line.add_trace(go.Scatter(x=top_25_cities['Country_Region'], y=top_25_cities['Mortality Rate (per 100)'],
+                    mode='lines+markers',
+                    ))
+
+
+
+#style for tab backgroud_____________________________________________________________________
+
+tab_selected_style = {
+    
+    
+    'backgroundColor': 'black',
+    'color': 'white',
+    'padding': '6px'
+}
 #dash app starts____________________________________________________________________________-
 
-app=dash.Dash(__name__)
+app=dash.Dash(__name__,)
 
-
+print('helo hey')
 app.layout=html.Div(children=[
                     html.Div(className='header',
                              children=[html.H1('Covid19 Dashboard')],
@@ -170,8 +212,16 @@ app.layout=html.Div(children=[
                                     'display':'inline-block',
                                     'float':'right',},
                              children=[     
-                                 dcc.Tabs([
-                                    dcc.Tab(label='Sentiment of people duirng COVID19 lockdown', children=[
+                                 dcc.Tabs(
+                                     parent_className='custom-tabs',
+                                     className='custom-tabs-container',
+                                    children=[
+                                    dcc.Tab(label='Sentiment of people duirng COVID19 lockdown', 
+                                            className='custom-tab',
+                                            selected_style=tab_selected_style,
+                                            selected_className='custom-tab--selected',
+                                            
+                                            children=[
                                  
                                      html.Div(className='sentiment_pie',
                                                  style={'width':'90%',
@@ -179,11 +229,19 @@ app.layout=html.Div(children=[
                                                        'float':'left'},
                                                 children=[
                                                     dcc.Graph(id='sentiment_pie_chart',
-                                                              figure=fig_pie,),
+                                                              figure=fig_pie,
+                                                              hoverData={'points':[{'customdata':['234']}]}),
+                                                    
                                                     
                                          ]) ]),
                                     
-                                    dcc.Tab(label='Sentiments, If lockdown Extended', children=[
+                                    dcc.Tab(label='Sentiments, If lockdown Extended', 
+                                            className='custom-tab',
+                                            selected_style=tab_selected_style,
+                                            selected_className='custom-tab--selected',                                            
+                                            
+                                            
+                                            children=[
                                  
                                      html.Div(className='sentiment_pie',
                                                  style={'width':'90%',
@@ -191,10 +249,16 @@ app.layout=html.Div(children=[
                                                        'float':'left'},
                                                 children=[
                                                     dcc.Graph(id='future_sentiment_pie_chart',
-                                                              figure=fig_pie,),
+                                                              figure=fig_pie_future,
+                                                              hoverData={'points':[{'customdata':['234']}]}),
                                                     
                                          ]) ]),
-                                    dcc.Tab(label='Emotions of people during COVID19 lockdown', children=[
+                                    dcc.Tab(label='Emotions of people during COVID19 lockdown', 
+                                            className='custom-tab',
+                                            selected_style=tab_selected_style,
+                                            selected_className='custom-tab--selected',                                            
+                                            
+                                            children=[
                                        html.Div(className='emotion_bar',
                                                  style={'width':'90%',
                                                        'display':'inline-block',
@@ -203,14 +267,19 @@ app.layout=html.Div(children=[
                                                      dcc.Graph(
                                                          id='emotion_bar_chat',
                                                          figure=fig_bar,
-                                                         )
+                                                         
+                                                         ),
+                                                     html.Div(id='sentiment_clickdata')
                                                      ]
                                                 )
-                                 ])])]),
+                                 ])],colors={"background": "black"},
+                                    
+                                    
+                                    )]),
 
                     html.Div(className='death_countrywise',
                              style={'width':'17%',},
-                             children=[generate_tabel(sorted_deaths,'Total Death In Counties'),
+                             children=[generate_tabel(sorted_death,'Total Death In Counties'),
                                       ]
                              ) ,
                     html.Div(className='death_countywise_name',
@@ -242,6 +311,32 @@ app.layout=html.Div(children=[
                                      id='conifrm_time_series_map',
                                      )
                                  ]),
+                    html.Div(className='morality_line_mark',
+                             style={'display':'inline-block',
+                                    'width':'60%',
+                                    'float':'left'},
+                             children=[
+                                 dcc.Graph(
+                                             id='morality_line_mark',
+                                             figure=fig_line,
+                                             hoverData={'points':[{'customdata':['Yemen']}],}
+                                             
+                                     ),
+                                     
+                                             
+                                 ]),
+                    html.Div(
+                                     
+                                className='morality_details',
+                                id='morality_details',
+                                style={
+                                        'display':'inline-block',
+                                        'width':'38%',
+                                        'float':'right',
+                                                 },
+                                children=[html.Div('dsujjbdsfhd'),
+                                                       
+                            ])                     
                    
                         
                         ])
@@ -256,7 +351,9 @@ def display_hover_data(hoverData):
 
 #call pack starts_______________________________________________________________________________
 
-
+   
+    
+ 
 @app.callback(Output(component_id='death_time_series_map', component_property='figure'),
               [Input(component_id='scatter_world_map',component_property='hoverData')])
 def ubdate_death_time_series(hoverData):
@@ -280,7 +377,8 @@ def ubdate_confirm_time_series(hoverData):
     title='Confirm cases Date wise'
     return create_time_series(time_df_death,country_name,col_name,title)
    
-
+@app.callback(Output(component_id='',component_property=''),
+              Input)
   
 if __name__=='__main__':
     app.run_server(debug=True)
