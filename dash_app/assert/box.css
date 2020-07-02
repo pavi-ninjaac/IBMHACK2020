@@ -16,11 +16,12 @@
 
 .first_box{
 	border: 1.5px solid #404040;
+
+
 	border-radius: 10px;
 	width: 17%;
 	height: 110px;
 	margin-top: 5px;
-	
 	margin-right: 0px;
 	margin-bottom: 5px;
 }
@@ -66,7 +67,7 @@
 	font-size: 13px;
 	text-align: center;
 	height:20px;
-	color:green;
+	color:#66004d;
 }
 
 .map{
@@ -84,5 +85,62 @@
 	margin-top: 5px;
 	margin-left: 5px;
 	margin-right: 5px;	
-	height:500px;
+	height:700px;
+}
+.custom-tabs-container {
+    
+    background-color: black;
+}
+.custom-tabs {
+    border-top-left-radius: 3px;
+    background-color: black;
+    
+    border-bottom: 1px solid #d6d6d6;
+}
+.custom-tab {
+    color:#e36209;
+
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-top: 3px solid transparent !important;
+    border-left: 0px !important;
+    border-right: 0px !important;
+    border-bottom: 0px !important;
+    background-color: black;
+    padding: 12px !important;
+    font-family: "system-ui";
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
+.custom-tab--selected {
+    color: #e36209;
+    background-color: black;
+    box-shadow: 1px 1px 0px white;
+
+    border-top: 3px solid #e36209 !important;
+}
+
+.morality_line_mark{
+	border: 1.5px solid #404040;
+	width: 50%;
+	height: 450px;
+	border-radius:5px;
+	margin-bottom: 15px;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: black;
+}
+
+.morality_details{
+	border: 1.5px solid #404040;
+	
+	height: 250px;
+	border-radius:5px;
+	margin-bottom: 15px;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-right: 5px;
+	background-color: black;
 }
