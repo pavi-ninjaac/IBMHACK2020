@@ -1,0 +1,8 @@
+1)type node.js download in browser and download the node js
+2) after installing go to cmd anywhere in your bc
+3)type "npm install -g --unsafe-perm node-red" in cmd 
+4) it will download some files 
+5) after download completed it will show like below
+6)then open your bc cmd anywhere and type 'node-red'
+7)and go to your browser and type "localhost:1880"
+8)it will launch tou the nnode-red locally
