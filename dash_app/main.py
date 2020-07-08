@@ -227,10 +227,18 @@ tab_selected_style = {
 app=dash.Dash(__name__,)
 
 print('helo hey')
+app.title='Covid19 DashBoard'
 app.layout=html.Div(children=[
+                    
                     html.Div(className='header',
-                             children=[html.H1('Covid19 Dashboard')],
-                             style={'textAlign':'center',} ),
+                                                 
+                            style={'textAlign':'center',
+                                   'display':'inline-block',
+                                   },
+                            children=[html.H1('Covid19 Dashboard'),
+                                      html.A('Contact our CovidBot',href='https://node-red-gcbsl.eu-gb.mybluemix.net/ui/#!/0?socketid=ZuUC_-sX34NiQmBWAAAo',target='_block'),]),
+                                       
+
                                       
 
                     html.Div(className='first_box',
