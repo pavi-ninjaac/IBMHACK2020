@@ -14,15 +14,14 @@ class sentiment_data():
     def get_sentiment_data():
 
         #read the files
-        tweet=pd.read_csv(r'F:\dash_app\dash_ibm_app\dataset\tweet.txt',sep='\n')
-        tweet.columns=['tweets']
+
         sentiment=pd.read_csv(r'F:\dash_app\dash_ibm_app\dataset\sentiment.csv')
         sentiment.columns=['sentiment']
         emotion=pd.read_csv(r'F:\dash_app\dash_ibm_app\dataset\emotion.csv')
         emotion.columns=['emotion']
         
         #future emotions and sentiment of people
-        future_sentiment=pd.read_csv(r'F:\dash_app\dash_ibm_app\dataset\sentiment.csv')
+        future_sentiment=pd.read_csv(r'F:\dash_app\dash_ibm_app\dataset\sentiment_future.csv')
         future_sentiment.columns=['sentiment']
         
         #prepare the dataframe stuiable for pie chart
