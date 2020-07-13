@@ -53,6 +53,9 @@ Here is the live, user interactive visualization dashboard to visualize the sent
 ![Screenshot (183)](https://user-images.githubusercontent.com/51699297/87293388-debfef00-c51f-11ea-83a7-d810dee55a4a.png)
 
 - You can download any image from the camera icon on the image, you can see that when you hover on the imgaes.
+
+![Screenshot (188)](https://user-images.githubusercontent.com/51699297/87303121-3d8d6480-c530-11ea-8ffe-6e748a6c3430.png)
+
 # Resources:
 -	Dash – powerful tool for live data visualization with plotly python
 -	Tone analyser –  IBM tone analyser used for getting the emotions of the people base on tweets
