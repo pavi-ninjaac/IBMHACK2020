@@ -8,7 +8,7 @@ ___
 -	[Resources](#resources) 
 -	[Team members](#team-members)
 # About the project:
-It presents  live streaming, fully user interactive, all-in-one dashboard with live sentiment and emotions of people across the world about the COVID19 lockdown. 
+<b>It presents  live streaming, fully user interactive, all-in-one dashboard with live sentiment and emotions of people</b> across the world about the COVID19 lockdown. 
 -	This app will give you the covid19 death and confirmed cases information for whole world as well as for each country. You can get the daily update on covid19 through the dashboard.
 -	The main parts of the dashboard is <b><i>“Sentiment of people about covid19, Emotion of people about covid19 and the main Sentiment of people If the lockdown is extended”.</i></b> 
 They are updated every 5 seconds.
@@ -25,7 +25,7 @@ Here is the live, user interactive visualization dashboard to visualize the sent
 
 ![Screenshot (179)](https://user-images.githubusercontent.com/51699297/87278555-65fe6a00-c502-11ea-8288-629ae7748022.png)
 
-Secondly the main part of the project is “sentiment if the lockdown is extended “ will also give you the pie chart with future predicted sentiment about the lockdown with hover information.<br/>22
+Secondly the main part of the project is “sentiment if the lockdown is extended “ will also give you the pie chart with future predicted sentiment about the lockdown with hover information.<br/>
 
 ![Screenshot (174)](https://user-images.githubusercontent.com/51699297/87278474-2b94cd00-c502-11ea-82f8-b8ad32b84548.png)
 
@@ -33,12 +33,12 @@ Third “Emotion of the people during covid19 “ visualizes the bar chat for 5 
 
 ![Screenshot (177)](https://user-images.githubusercontent.com/51699297/87278553-63037980-c502-11ea-907c-6c6dc18a845a.png)
 
-At the right and lift side of the dashboard  you can see the total death, confirmed and active cases and a list of death an confirmed cases country-wise. This will update you more about covid19 and ordered in decending so the country which has the highest count will appear first.<br/>
+<b><i>At the right and lift side of the dashboard  you can see the total death, confirmed and active cases and a list of death an confirmed cases country-wise. This will update you more about covid19 and ordered in decending so the country which has the highest count will appear first.</i></b><br/>
 World map if you hover on it the right side two graphs are updated based on the county you hovering. Fully user interactive.<br/>
 
 ![Screenshot (175)](https://user-images.githubusercontent.com/51699297/87278491-364f6200-c502-11ea-8678-badd74e51f07.png)
 vedio
-Mortality map visualizes the highest 25 counties which has the high mortality rate value and when you hover on it you can see more information about the mortality and the coutry.22<br/>
+Mortality map visualizes the highest 25 counties which has the high mortality rate value and when you hover on it you can see more information about the mortality and the coutry.<br/>
 
 ![Screenshot (176)](https://user-images.githubusercontent.com/51699297/87278522-46674180-c502-11ea-8ec7-5e65082c18ec.png)
 
