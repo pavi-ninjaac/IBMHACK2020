@@ -20,8 +20,8 @@ class tweets_analyse():
 
         d1 = yesterday.strftime("%m-%d-%Y")
 
-
-        fileurl = r'F:\dash_app\dash_ibm_app\dataset\covid19_daily.csv'
+        fileurl=r'F:\dash_app\dash_ibm_app\dataset\covid19_daily.csv'
+        #fileurl = r'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_daily_reports/' + d1 + '.csv'
         df = pd.read_csv(fileurl)
 
         df.head()
@@ -47,9 +47,11 @@ class tweets_analyse():
         df_consolidated["Mortality Rate (per 100)"] = np.round(100*df_consolidated["Deaths"]/df_consolidated["Confirmed"],2)
         morality_df=df_consolidated[['Mortality Rate (per 100)','Country_Region','Deaths','Confirmed']].copy()
         
+        morality_df.to_csv(r'F:\dash_app\dash_ibm_app\dataset\morality_full_state_report_chatbot.csv')
+        
         morality_sorted =morality_df.sort_values(by='Mortality Rate (per 100)',ascending=False)    
         top_25_cities=morality_sorted.iloc[0:25,:]
-
+        
                     
         # total confirmed along with contries
         total_confirmed = df_consolidated['Confirmed'].sum()
@@ -77,6 +79,10 @@ class tweets_analyse():
         df_confirmed_ts = pd.read_csv(r'F:\dash_app\dash_ibm_app\dataset\time_seris_global_conformed.csv')
         df_deaths_ts = pd.read_csv(r'F:\dash_app\dash_ibm_app\dataset\time_series_death_global.csv')
         df_recovered_ts = pd.read_csv(r'F:\dash_app\dash_ibm_app\dataset\time_series_recovery_global.csv')
+        #df_confirmed_ts = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv')
+        #df_deaths_ts =    pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv')
+        #df_recovered_ts = pd.read_csv('https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv')
+   
         
         df_lat_long_confirm=df_confirmed_ts[['Country/Region','Lat','Long']]
 
