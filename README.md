@@ -15,6 +15,9 @@ They are updated every 5 seconds.
 -	<b>World map</b> is plotted with all the countries in the world and updated every day. When hover on one country ,this  will generate two graph showing death and confirmed cases corresponding to the country from may to now day-wise. This graph is fully user interactive, when user hover on it the graph keep updating corresponding to every point they hovering.
 -	<b><i>Mortality rate</i></b> – mortality rate is nothing but the death rate. Through the mortality rate we can decide the covid19 condition in the country.
 -	<b><i>Al Based CovidBot</i></b>- dashboard is available with the CovidBot through that we can contact with our AI chatbot and make communication about  the general information, treatment and medical related queries, origin, present condition, sentiment and emotion analytics graph, death and confirmed cases county-wise and more.
+- You can <b><i>download the images</i></b> from the camera icon on the side of the images.
+
+
 # Getting started:
 -	clone the repository
 - For chatbot creation [follow the steps here](https://github.com/pavi-ninjaac/Covid19Bot)
@@ -27,28 +30,29 @@ Here is the live, user interactive visualization dashboard to visualize the sent
 
 ![Screenshot (179)](https://user-images.githubusercontent.com/51699297/87278555-65fe6a00-c502-11ea-8288-629ae7748022.png)
 
-Secondly the main part of the project is “sentiment if the lockdown is extended “ will also give you the pie chart with future predicted sentiment about the lockdown with hover information.<br/>
+- Secondly the main part of the project is “sentiment if the lockdown is extended “ will also give you the pie chart with future predicted sentiment about the lockdown with hover information.<br/>
 
 ![Screenshot (174)](https://user-images.githubusercontent.com/51699297/87278474-2b94cd00-c502-11ea-82f8-b8ad32b84548.png)
 
-Third “Emotion of the people during covid19 “ visualizes the bar chat for 5 emotions and updated every 5 seconds.<br/>
+- Third “Emotion of the people during covid19 “ visualizes the bar chat for 5 emotions and updated every 5 seconds.<br/>
 
 ![Screenshot (177)](https://user-images.githubusercontent.com/51699297/87278553-63037980-c502-11ea-907c-6c6dc18a845a.png)
 
-<b><i>At the right and lift side of the dashboard  you can see the total death, confirmed and active cases and a list of death an confirmed cases country-wise. This will update you more about covid19 and ordered in decending so the country which has the highest count will appear first.</i></b><br/><br/><br/>
+- <b><i>At the right and lift side of the dashboard  you can see the total death, confirmed and active cases and a list of death an confirmed cases country-wise. This will update you more about covid19 and ordered in decending so the country which has the highest count will appear first.</i></b><br/><br/><br/>
 
-World map if you hover on it the right side two graphs are updated based on the county you hovering. Fully user interactive.<br/>
+- World map if you hover on it the right side two graphs are updated based on the county you hovering. Fully user interactive.<br/>
 
 ![Screenshot (175)](https://user-images.githubusercontent.com/51699297/87278491-364f6200-c502-11ea-8678-badd74e51f07.png)
-vedio_________________
-Mortality map visualizes the highest 25 counties which has the high mortality rate value and when you hover on it you can see more information about the mortality and the coutry.<br/>
+
+- Mortality map visualizes the highest 25 counties which has the high mortality rate value and when you hover on it you can see more information about the mortality and the coutry.<br/>
 
 ![Screenshot (176)](https://user-images.githubusercontent.com/51699297/87278522-46674180-c502-11ea-8ec7-5e65082c18ec.png)
 
-CovidBot – can answer users based on the AI technology<br/>
+- CovidBot – can answer users based on the AI technology<br/>
 
 ![Screenshot (183)](https://user-images.githubusercontent.com/51699297/87293388-debfef00-c51f-11ea-83a7-d810dee55a4a.png)
 
+- You can download any image from the camera icon on the image, you can see that when you hover on the imgaes.
 # Resources:
 -	Dash – powerful tool for live data visualization with plotly python
 -	Tone analyser –  IBM tone analyser used for getting the emotions of the people base on tweets
