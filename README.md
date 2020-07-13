@@ -17,6 +17,8 @@ They are updated every 5 seconds.
 -	<b><i>Al Based CovidBot</i></b>- dashboard is available with the CovidBot through that we can contact with our AI chatbot and make communication about  the general information, treatment and medical related queries, origin, present condition, sentiment and emotion analytics graph, death and confirmed cases county-wise and more.
 # Getting started:
 -	clone the repository
+- For chatbot creation [follow the steps here](https://github.com/pavi-ninjaac/Covid19Bot)
+- For live sentiment stream [follow the steps here](https://github.com/pavi-ninjaac/Sentiment_analyse_node-red) 
 - run main.py file from your cmd like “python main.py”
 -	view the dash app on localhost:8050
 
