@@ -44,7 +44,9 @@ Mortality map visualizes the highest 25 counties which has the high mortality ra
 
 ![Screenshot (176)](https://user-images.githubusercontent.com/51699297/87278522-46674180-c502-11ea-8ec7-5e65082c18ec.png)
 
-CovidBot – can answer users based on the AI technology .22<br/>
+CovidBot – can answer users based on the AI technology<br/>
+
+![Screenshot (183)](https://user-images.githubusercontent.com/51699297/87293388-debfef00-c51f-11ea-83a7-d810dee55a4a.png)
 
 # Resources:
 -	Dash – powerful tool for live data visualization with plotly python
