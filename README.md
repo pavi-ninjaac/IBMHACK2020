@@ -16,17 +16,32 @@ They are updated every 5 seconds.
 -	<b><i>Mortality rate</i></b> – mortality rate is nothing but the death rate. Through the mortality rate we can decide the covid19 condition in the country.
 -	<b><i>Al Based CovidBot</i></b>- dashboard is available with the CovidBot through that we can contact with our AI chatbot and make communication about  the general information, treatment and medical related queries, origin, present condition, sentiment and emotion analytics graph, death and confirmed cases county-wise and more.
 # Getting started:
--	1) close the repository
--	2) run main.py file from your cmd like “python main.py”
--	3) view the dash app on localhost:8050
+-	clone the repository
+- run main.py file from your cmd like “python main.py”
+-	view the dash app on localhost:8050
 
 # Dashboard Fundamental:
-Here is the live, user interactive visualization dashboard to visualize the sentiment and emotion about Covid19 lockdown. center part first visualize the Sentiment of people through the pie chart and hover on the pie chat will give you the general information and number of tweets under the catogary. This is updated every 5 seconds.<br/>22
+Here is the live, user interactive visualization dashboard to visualize the sentiment and emotion about Covid19 lockdown. center part first visualize the Sentiment of people through the pie chart and hover on the pie chat will give you the general information and number of tweets under the catogary. This is updated every 5 seconds.<br/>
+
+![Screenshot (179)](https://user-images.githubusercontent.com/51699297/87278555-65fe6a00-c502-11ea-8288-629ae7748022.png)
+
 Secondly the main part of the project is “sentiment if the lockdown is extended “ will also give you the pie chart with future predicted sentiment about the lockdown with hover information.<br/>22
-Third “Emotion of the people during covid19 “ visualizes the bar chat for 5 emotions and updated every 5 seconds.<br/>22 
+
+![Screenshot (174)](https://user-images.githubusercontent.com/51699297/87278474-2b94cd00-c502-11ea-82f8-b8ad32b84548.png)
+
+Third “Emotion of the people during covid19 “ visualizes the bar chat for 5 emotions and updated every 5 seconds.<br/>
+
+![Screenshot (177)](https://user-images.githubusercontent.com/51699297/87278553-63037980-c502-11ea-907c-6c6dc18a845a.png)
+
 At the right and lift side of the dashboard  you can see the total death, confirmed and active cases and a list of death an confirmed cases country-wise. This will update you more about covid19 and ordered in decending so the country which has the highest count will appear first.<br/>
-World map if you hover on it the right side two graphs are updated based on the county you hovering. Fully user interactive.<br/>22 vedio
+World map if you hover on it the right side two graphs are updated based on the county you hovering. Fully user interactive.<br/>
+
+![Screenshot (175)](https://user-images.githubusercontent.com/51699297/87278491-364f6200-c502-11ea-8678-badd74e51f07.png)
+vedio
 Mortality map visualizes the highest 25 counties which has the high mortality rate value and when you hover on it you can see more information about the mortality and the coutry.22<br/>
+
+![Screenshot (176)](https://user-images.githubusercontent.com/51699297/87278522-46674180-c502-11ea-8ec7-5e65082c18ec.png)
+
 CovidBot – can answer users based on the AI technology .22<br/>
 
 # Resources:
