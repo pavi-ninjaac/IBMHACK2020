@@ -8,7 +8,7 @@ ___
 -	[Resources](#resources) 
 -	[Team members](#team-members)
 # About the project:
-<b>It presents  live streaming, fully user interactive, all-in-one dashboard with live sentiment and emotions of people</b> across the world about the COVID19 lockdown. 
+<b>It presents  live str  eaming, fully user interactive, all-in-one dashboard with live sentiment and emotions of people</b> across the world about the COVID19 lockdown. 
 -	This app will give you the covid19 death and confirmed cases information for whole world as well as for each country. You can get the daily update on covid19 through the dashboard.
 -	The main parts of the dashboard is <b><i>“Sentiment of people about covid19, Emotion of people about covid19 and the main Sentiment of people If the lockdown is extended”.</i></b> 
 They are updated every 5 seconds.
